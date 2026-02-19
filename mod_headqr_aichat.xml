@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_headqr_aichat</name>
+	<author>HeadQR</author>
+	<creationDate>2026-03</creationDate>
+	<copyright>(C) 2026 HeadQR</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>hello@headqr.com</authorEmail>
+	<authorUrl>https://www.headqr.com</authorUrl>
+	<version>1.0.1</version>
+	<description>MOD_HEADQR_AICHAT_XML_DESCRIPTION</description>
+	<namespace path="src">Headqr\Module\HeadqrAichat</namespace>
+	<files>
+		<folder module="mod_headqr_aichat">services</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<file>mod_headqr_aichat.zip</file>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/mod_headqr_aichat.ini</language>
+		<language tag="en-GB">language/en-GB/mod_headqr_aichat.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR/mod_headqr_aichat.ini</language>
+		<language tag="fr-FR">language/fr-FR/mod_headqr_aichat.sys.ini</language>
+		<language tag="es-ES">language/es-ES/mod_headqr_aichat.ini</language>
+		<language tag="es-ES">language/es-ES/mod_headqr_aichat.sys.ini</language>
+	</languages>
+	<help key="Site_Modules:_HeadqrAichat" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="data_user_id"
+					type="number"
+					label="MOD_HEADQR_AICHAT_FIELD_USER_ID_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_USER_ID_DESC"
+					default=""
+					filter="integer"
+					min="0"
+					required="true"
+				/>
+				<field
+					name="data_assistant_id"
+					type="number"
+					label="MOD_HEADQR_AICHAT_FIELD_ASSISTANT_ID_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_ASSISTANT_ID_DESC"
+					default=""
+					filter="integer"
+					min="0"
+					required="true"
+				/>
+				<field
+					name="data_color1"
+					type="color"
+					label="MOD_HEADQR_AICHAT_FIELD_COLOR1_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_COLOR1_DESC"
+					default="#28d252"
+				/>
+				<field
+					name="data_color2"
+					type="color"
+					label="MOD_HEADQR_AICHAT_FIELD_COLOR2_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_COLOR2_DESC"
+					default="#25ad27"
+				/>
+				<field
+					name="data_lang"
+					type="list"
+					label="MOD_HEADQR_AICHAT_FIELD_LANG_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_LANG_DESC"
+					default=""
+					validate="options"
+				>
+					<option value="">MOD_HEADQR_AICHAT_LANG_AUTO</option>
+					<option value="fr-FR">MOD_HEADQR_AICHAT_LANG_FR</option>
+					<option value="en-GB">MOD_HEADQR_AICHAT_LANG_EN</option>
+					<option value="de-DE">MOD_HEADQR_AICHAT_LANG_DE</option>
+					<option value="es-ES">MOD_HEADQR_AICHAT_LANG_ES</option>
+					<option value="it-IT">MOD_HEADQR_AICHAT_LANG_IT</option>
+					<option value="ja-JP">MOD_HEADQR_AICHAT_LANG_JA</option>
+					<option value="ko-KR">MOD_HEADQR_AICHAT_LANG_KO</option>
+					<option value="nl-NL">MOD_HEADQR_AICHAT_LANG_NL</option>
+					<option value="pt-PT">MOD_HEADQR_AICHAT_LANG_PT</option>
+					<option value="ru-RU">MOD_HEADQR_AICHAT_LANG_RU</option>
+					<option value="zh-CN">MOD_HEADQR_AICHAT_LANG_ZH</option>
+				</field>
+				<field
+					name="data_btn_align"
+					type="radio"
+					label="MOD_HEADQR_AICHAT_FIELD_BTN_ALIGN_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_BTN_ALIGN_DESC"
+					default="right"
+					class="btn-group btn-group-yesno"
+					validate="options"
+				>
+					<option value="left">MOD_HEADQR_AICHAT_ALIGN_LEFT</option>
+					<option value="right">MOD_HEADQR_AICHAT_ALIGN_RIGHT</option>
+				</field>
+				<field
+					name="data_btn_offset_bottom"
+					type="number"
+					label="MOD_HEADQR_AICHAT_FIELD_BTN_OFFSET_BOTTOM_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_BTN_OFFSET_BOTTOM_DESC"
+					default="12"
+					filter="integer"
+					min="0"
+				/>
+				<field
+					name="data_btn_offset_horizontal"
+					type="number"
+					label="MOD_HEADQR_AICHAT_FIELD_BTN_OFFSET_HORIZONTAL_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_BTN_OFFSET_HORIZONTAL_DESC"
+					default="12"
+					filter="integer"
+					min="0"
+				/>
+				<field
+					name="data_btn_zindex"
+					type="number"
+					label="MOD_HEADQR_AICHAT_FIELD_BTN_ZINDEX_LABEL"
+					description="MOD_HEADQR_AICHAT_FIELD_BTN_ZINDEX_DESC"
+					default="1110"
+					filter="integer"
+					min="1"
+				/>
+			</fieldset>
+
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					class="form-select"
+					validate="moduleLayout"
+				/>
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					rows="3"
+					validate="CssIdentifier"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					default="1"
+					filter="integer"
+					validate="options"
+					>
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="number"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					default="900"
+					filter="integer"
+				/>
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static"
+					>
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
